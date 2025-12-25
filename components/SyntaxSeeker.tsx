@@ -145,7 +145,7 @@ export const SyntaxSeeker: React.FC = () => {
       {status === GameStatus.LOADING ? (
         <div className="flex flex-col items-center">
           <RefreshCw className="w-16 h-16 text-neon-green animate-spin mb-4" />
-          <h2 className="text-2xl font-orbitron">SO'ZLAR YARATILMOQDA...</h2>
+          <h2 className="text-2xl font-orbitron">GENERATING WORDS...</h2>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-8 items-start max-w-6xl w-full">
@@ -153,7 +153,7 @@ export const SyntaxSeeker: React.FC = () => {
           {/* Info Panel */}
           <div className="w-full md:w-1/3 bg-dark-card border border-neon-green/30 p-6 rounded-2xl">
             <h2 className="text-neon-green font-orbitron text-xl mb-2 flex items-center gap-2">
-              <Scan /> MAVZU: {topic}
+              <Scan /> TOPIC: {topic}
             </h2>
             <div className="h-px w-full bg-white/10 my-4" />
             <div className="grid grid-cols-2 gap-3">
@@ -168,8 +168,8 @@ export const SyntaxSeeker: React.FC = () => {
                 initial={{ scale: 0 }} animate={{ scale: 1 }}
                 className="mt-6 bg-neon-green text-black p-4 rounded-xl font-orbitron font-bold text-center"
               >
-                TUGADI! (DONE)
-                <button onClick={startNewGame} className="block w-full mt-2 bg-black text-white py-2 rounded-lg text-sm">KEYINGI MAVZU (NEXT)</button>
+                COMPLETE!
+                <button onClick={startNewGame} className="block w-full mt-2 bg-black text-white py-2 rounded-lg text-sm">NEXT TOPIC</button>
               </motion.div>
             )}
           </div>

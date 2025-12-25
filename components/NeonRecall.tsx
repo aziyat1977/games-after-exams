@@ -76,7 +76,7 @@ export const NeonRecall: React.FC = () => {
            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center">
              <h2 className="text-6xl font-orbitron text-neon-blue mb-8 drop-shadow-[0_0_15px_rgba(0,243,255,0.8)]">NEON RECALL</h2>
              <button onClick={startGame} className="bg-white text-black text-2xl font-bold font-orbitron px-12 py-6 rounded-full hover:scale-105 transition-transform flex items-center gap-4 mx-auto">
-               <Play fill="black" /> KETDIK! (LET'S GO)
+               <Play fill="black" /> LET'S GO!
              </button>
            </motion.div>
         )}
@@ -88,11 +88,11 @@ export const NeonRecall: React.FC = () => {
             className="absolute z-50 bg-black/80 backdrop-blur-xl border-2 border-white/20 p-12 rounded-3xl text-center"
           >
             <h2 className={`text-6xl font-orbitron mb-4 ${status === GameStatus.SUCCESS ? 'text-neon-green' : 'text-neon-pink'}`}>
-              {status === GameStatus.SUCCESS ? 'YORVORDIZ! (SMASHED IT)' : 'YOMON BO\'LDI... (FAIL)'}
+              {status === GameStatus.SUCCESS ? 'SMASHED IT!' : 'GAME OVER'}
             </h2>
             <p className="text-2xl text-gray-400 mb-8 font-rajdhani">LEVEL: {level}</p>
             <button onClick={startGame} className="bg-white/10 border border-white/40 text-white hover:bg-white hover:text-black text-xl font-bold font-orbitron px-10 py-4 rounded-xl transition-all flex items-center gap-3 mx-auto">
-              <RotateCcw /> QAYTADAN (RETRY)
+              <RotateCcw /> RETRY
             </button>
           </motion.div>
         )}
@@ -125,7 +125,7 @@ export const NeonRecall: React.FC = () => {
       
       {status === GameStatus.PLAYING && (
         <div className="mt-8 font-orbitron text-xl text-neon-purple tracking-widest animate-pulse">
-           {isPlayingSequence ? "QARANG (WATCH)" : "QAYTARING (REPEAT)"}
+           {isPlayingSequence ? "WATCH" : "REPEAT"}
         </div>
       )}
     </div>

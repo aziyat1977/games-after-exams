@@ -38,7 +38,7 @@ export const CryptoCross: React.FC = () => {
     return (
         <div className="h-full flex flex-col items-center justify-center">
             <Hash className="w-16 h-16 text-neon-blue animate-spin mb-4" />
-            <p className="font-orbitron text-xl">KROSSVORD TUZILMOQDA...</p>
+            <p className="font-orbitron text-xl">GENERATING CROSSWORD...</p>
         </div>
     );
   }
@@ -46,7 +46,7 @@ export const CryptoCross: React.FC = () => {
   return (
     <div className="h-full flex flex-col items-center justify-center p-6 overflow-y-auto">
        <div className="mb-8 text-center">
-          <span className="text-neon-purple font-orbitron text-sm tracking-widest">YASHIRIN MAVZU</span>
+          <span className="text-neon-purple font-orbitron text-sm tracking-widest">HIDDEN THEME</span>
           <h2 className="text-4xl text-white font-rajdhani font-bold">{data?.theme}</h2>
        </div>
 
@@ -82,9 +82,9 @@ export const CryptoCross: React.FC = () => {
 
        {status === GameStatus.SUCCESS && (
            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="mt-8 text-center">
-               <div className="text-neon-green font-orbitron text-2xl mb-4">DAXSHAT! HAMMASI TO'G'RI</div>
+               <div className="text-neon-green font-orbitron text-2xl mb-4">AWESOME! ALL CORRECT</div>
                <button onClick={initGame} className="bg-white text-black font-bold px-8 py-3 rounded-full flex items-center gap-2 mx-auto hover:scale-105 transition">
-                   <RefreshCw className="w-5 h-5" /> YANGI O'YIN
+                   <RefreshCw className="w-5 h-5" /> NEW GAME
                </button>
            </motion.div>
        )}

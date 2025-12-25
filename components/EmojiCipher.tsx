@@ -37,7 +37,7 @@ export const EmojiCipher: React.FC = () => {
     return (
       <div className="h-full flex flex-col items-center justify-center">
         <RefreshCw className="w-20 h-20 text-neon-purple animate-spin mb-6" />
-        <h2 className="text-3xl font-orbitron text-white">EMOJILAR YUKLANMOQDA...</h2>
+        <h2 className="text-3xl font-orbitron text-white">LOADING EMOJIS...</h2>
       </div>
     );
   }
@@ -49,9 +49,9 @@ export const EmojiCipher: React.FC = () => {
       <div className="w-full flex justify-between items-center mb-10 border-b border-white/10 pb-4">
          <div className="flex items-center gap-3 text-neon-green">
            <BrainCircuit className="w-8 h-8" />
-           <span className="font-orbitron text-xl tracking-widest">MAVZU (TOPIC): {puzzle?.category.toUpperCase()}</span>
+           <span className="font-orbitron text-xl tracking-widest">TOPIC: {puzzle?.category.toUpperCase()}</span>
          </div>
-         <button onClick={loadLevel} className="text-gray-400 hover:text-white font-rajdhani uppercase tracking-widest">O'TKAZIB YUBORISH (SKIP) &rarr;</button>
+         <button onClick={loadLevel} className="text-gray-400 hover:text-white font-rajdhani uppercase tracking-widest">SKIP &rarr;</button>
       </div>
 
       {/* The Puzzle Display */}
@@ -60,7 +60,7 @@ export const EmojiCipher: React.FC = () => {
         animate={{ scale: 1, opacity: 1 }}
         className="w-full bg-dark-card border border-neon-purple/30 rounded-3xl p-12 mb-12 flex flex-col items-center shadow-[0_0_50px_rgba(188,19,254,0.15)]"
       >
-        <span className="text-gray-400 font-orbitron text-sm mb-4">BU NIMA? (DECODE THIS)</span>
+        <span className="text-gray-400 font-orbitron text-sm mb-4">DECODE THIS</span>
         <div className="text-7xl md:text-9xl tracking-[0.2em] drop-shadow-2xl">
           {puzzle?.emojis}
         </div>
@@ -101,7 +101,7 @@ export const EmojiCipher: React.FC = () => {
             onClick={loadLevel}
             className={`px-12 py-4 rounded-full font-orbitron font-bold text-xl shadow-xl hover:scale-105 transition-transform flex items-center gap-3 ${status === GameStatus.SUCCESS ? 'bg-neon-green text-black' : 'bg-neon-pink text-white'}`}
           >
-            {status === GameStatus.SUCCESS ? 'GAP YO\'Q! (AWESOME)' : 'XATO... (FAIL)'} - KEYINGISI <Sparkles className="w-5 h-5" />
+            {status === GameStatus.SUCCESS ? 'AWESOME!' : 'INCORRECT'} - NEXT <Sparkles className="w-5 h-5" />
           </button>
         </motion.div>
       )}

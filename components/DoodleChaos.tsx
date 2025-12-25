@@ -83,9 +83,9 @@ export const DoodleChaos: React.FC = () => {
       {/* Header / Prompt Bar */}
       <div className="flex justify-between items-center bg-dark-card border border-neon-purple/30 p-6 rounded-2xl shadow-lg backdrop-blur">
         <div className="flex flex-col">
-          <span className="text-neon-purple font-orbitron text-sm tracking-widest uppercase">CHIZISH UCHUN MAVZU (TOPIC)</span>
+          <span className="text-neon-purple font-orbitron text-sm tracking-widest uppercase">DRAWING TOPIC</span>
           <h2 className="text-3xl font-rajdhani font-bold text-white leading-tight">
-            {prompt ? `"${prompt.text}"` : "Yuklanmoqda..."}
+            {prompt ? `"${prompt.text}"` : "Loading..."}
           </h2>
         </div>
         <button 
@@ -93,7 +93,7 @@ export const DoodleChaos: React.FC = () => {
           className="flex items-center gap-2 bg-neon-purple hover:bg-purple-500 text-white font-orbitron font-bold px-6 py-3 rounded-xl transition-all shadow-[0_0_20px_rgba(188,19,254,0.3)] hover:scale-105"
         >
           <Shuffle className="w-5 h-5" />
-          YANGI MAVZU (NEW)
+          NEW TOPIC
         </button>
       </div>
 
@@ -139,7 +139,7 @@ export const DoodleChaos: React.FC = () => {
              className="touch-none"
            />
            <div className="absolute top-4 right-4 text-black/20 font-orbitron font-bold pointer-events-none select-none text-2xl tracking-widest">
-             VORTEX RASSOM
+             VORTEX ARTIST
            </div>
         </div>
       </div>

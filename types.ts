@@ -8,6 +8,9 @@ export enum ViewState {
   MEME_GLITCH = 'MEME_GLITCH',
   CRYPTO_CROSS = 'CRYPTO_CROSS',
   DOODLE_CHAOS = 'DOODLE_CHAOS',
+  MEME_TRIBUNAL = 'MEME_TRIBUNAL',
+  GRAVITY_SORT = 'GRAVITY_SORT',
+  FLASHLIGHT_HUNT = 'FLASHLIGHT_HUNT',
 }
 
 export interface EmojiPuzzle {
@@ -68,4 +71,36 @@ export interface CrosswordItem {
 export interface CrosswordData {
   theme: string;
   items: CrosswordItem[];
+}
+
+// New Games Types
+
+export interface SortItem {
+  id: string;
+  text: string;
+  category: 'LEFT' | 'RIGHT';
+}
+
+export interface SortLevel {
+  leftCategory: string;
+  rightCategory: string;
+  items: SortItem[];
+}
+
+export interface HiddenObject {
+  id: string;
+  x: number; // Percentage 0-100
+  y: number; // Percentage 0-100
+  label: string;
+  isFound: boolean;
+}
+
+export interface FlashlightLevel {
+  topic: string;
+  objects: HiddenObject[];
+}
+
+export interface MemeTemplate {
+  url: string; // URL or placeholder style
+  topic: string;
 }

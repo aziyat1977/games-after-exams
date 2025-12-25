@@ -9,8 +9,11 @@ import { SyntaxSeeker } from './components/SyntaxSeeker';
 import { MemeGlitch } from './components/MemeGlitch';
 import { CryptoCross } from './components/CryptoCross';
 import { DoodleChaos } from './components/DoodleChaos';
+import { MemeTribunal } from './components/MemeTribunal';
+import { GravitySort } from './components/GravitySort';
+import { FlashlightHunt } from './components/FlashlightHunt';
 import { ViewState } from './types';
-import { Brain, Sparkles, Zap, ChevronLeft, Cpu, Scan, Skull, Hash, Palette } from 'lucide-react';
+import { Brain, Sparkles, Zap, ChevronLeft, Cpu, Scan, Skull, Hash, Palette, Gavel, ArrowDownUp, Lightbulb } from 'lucide-react';
 
 const App: React.FC = () => {
   const [view, setView] = useState<ViewState>(ViewState.HOME);
@@ -26,6 +29,9 @@ const App: React.FC = () => {
       case ViewState.MEME_GLITCH: return <MemeGlitch />;
       case ViewState.CRYPTO_CROSS: return <CryptoCross />;
       case ViewState.DOODLE_CHAOS: return <DoodleChaos />;
+      case ViewState.MEME_TRIBUNAL: return <MemeTribunal />;
+      case ViewState.GRAVITY_SORT: return <GravitySort />;
+      case ViewState.FLASHLIGHT_HUNT: return <FlashlightHunt />;
       default: return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-7xl px-8 pb-10">
            <GameCard 
@@ -83,6 +89,31 @@ const App: React.FC = () => {
              color="from-yellow-400 to-orange-500"
              onClick={() => setView(ViewState.DOODLE_CHAOS)}
              index={6}
+           />
+           {/* NEW GAMES */}
+           <GameCard 
+             title="MEME TRIBUNAL" 
+             icon={<Gavel className="w-16 h-16" />} 
+             desc="Caption Challenge" 
+             color="from-red-600 to-pink-600"
+             onClick={() => setView(ViewState.MEME_TRIBUNAL)}
+             index={7}
+           />
+           <GameCard 
+             title="GRAVITY BLITZ" 
+             icon={<ArrowDownUp className="w-16 h-16" />} 
+             desc="Speed Sort" 
+             color="from-cyan-500 to-blue-600"
+             onClick={() => setView(ViewState.GRAVITY_SORT)}
+             index={8}
+           />
+           <GameCard 
+             title="FLASHLIGHT HUNT" 
+             icon={<Lightbulb className="w-16 h-16" />} 
+             desc="Hidden Objects" 
+             color="from-zinc-500 to-black"
+             onClick={() => setView(ViewState.FLASHLIGHT_HUNT)}
+             index={9}
            />
         </div>
       );

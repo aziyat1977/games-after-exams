@@ -91,21 +91,21 @@ export const SpeedMatch: React.FC = () => {
     <div className="h-full flex flex-col items-center justify-center p-4">
       {status === GameStatus.IDLE || status === GameStatus.SUCCESS || status === GameStatus.FAILURE ? (
         <div className="text-center">
-           <h2 className="text-6xl font-rajdhani font-bold mb-6 text-white">TEZLIK (SPEED MATCH)</h2>
+           <h2 className="text-6xl font-rajdhani font-bold mb-6 text-white">SPEED MATCH</h2>
            {status !== GameStatus.IDLE && (
              <p className={`text-2xl mb-8 font-orbitron ${status === GameStatus.SUCCESS ? 'text-neon-green' : 'text-neon-pink'}`}>
-               {status === GameStatus.SUCCESS ? `DAXSHAT! ${45 - timeLeft}s` : 'VAQT TUGADI (TIME UP)'}
+               {status === GameStatus.SUCCESS ? `AWESOME! ${45 - timeLeft}s` : 'TIME UP'}
              </p>
            )}
            <button onClick={initGame} className="bg-neon-blue text-black font-orbitron font-bold text-2xl px-12 py-6 rounded-full hover:scale-105 transition-transform">
-             {status === GameStatus.IDLE ? 'BOSHLASH (START)' : 'YANA O\'YNAYMIZ (PLAY AGAIN)'}
+             {status === GameStatus.IDLE ? 'START GAME' : 'PLAY AGAIN'}
            </button>
         </div>
       ) : (
         <>
           <div className="w-full max-w-4xl flex justify-between items-center mb-6">
             <div className="flex flex-col">
-              <span className="text-gray-400 font-rajdhani text-sm uppercase">VAQT (TIME)</span>
+              <span className="text-gray-400 font-rajdhani text-sm uppercase">TIME</span>
               <span className={`text-4xl font-orbitron ${timeLeft < 10 ? 'text-red-500 animate-pulse' : 'text-white'}`}>
                 {timeLeft}s
               </span>
@@ -118,7 +118,7 @@ export const SpeedMatch: React.FC = () => {
                />
             </div>
             <div className="flex flex-col items-end">
-              <span className="text-gray-400 font-rajdhani text-sm uppercase">JUFTLIKLAR (PAIRS)</span>
+              <span className="text-gray-400 font-rajdhani text-sm uppercase">PAIRS</span>
               <span className="text-4xl font-orbitron text-neon-green">{matches}/{PAIRS_COUNT}</span>
             </div>
           </div>
