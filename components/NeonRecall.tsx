@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GameStatus } from '../types';
@@ -14,8 +15,6 @@ export const NeonRecall: React.FC = () => {
   const [level, setLevel] = useState(1);
   const [activeButton, setActiveButton] = useState<number | null>(null);
 
-  // Generate sounds visuals (simulated via state)
-  
   const startGame = () => {
     setStatus(GameStatus.PLAYING);
     setLevel(1);
@@ -32,14 +31,13 @@ export const NeonRecall: React.FC = () => {
   };
 
   const playSequence = async (seq: number[]) => {
-    // Small delay before starting
     await new Promise(r => setTimeout(r, 800));
     
     for (let i = 0; i < seq.length; i++) {
       setActiveButton(seq[i]);
-      await new Promise(r => setTimeout(r, 600)); // Light up time
+      await new Promise(r => setTimeout(r, 600)); 
       setActiveButton(null);
-      await new Promise(r => setTimeout(r, 200)); // Gap
+      await new Promise(r => setTimeout(r, 200)); 
     }
     setIsPlayingSequence(false);
   };
@@ -47,7 +45,6 @@ export const NeonRecall: React.FC = () => {
   const handleButtonPress = (index: number) => {
     if (status !== GameStatus.PLAYING || isPlayingSequence) return;
 
-    // Flash the button immediately on press
     setActiveButton(index);
     setTimeout(() => setActiveButton(null), 200);
 
@@ -61,7 +58,6 @@ export const NeonRecall: React.FC = () => {
     setPlayerSequence(newPlayerSeq);
 
     if (newPlayerSeq.length === sequence.length) {
-      // Round Complete
       if (level >= 5) {
         setStatus(GameStatus.SUCCESS);
       } else {
@@ -80,7 +76,7 @@ export const NeonRecall: React.FC = () => {
            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center">
              <h2 className="text-6xl font-orbitron text-neon-blue mb-8 drop-shadow-[0_0_15px_rgba(0,243,255,0.8)]">NEON RECALL</h2>
              <button onClick={startGame} className="bg-white text-black text-2xl font-bold font-orbitron px-12 py-6 rounded-full hover:scale-105 transition-transform flex items-center gap-4 mx-auto">
-               <Play fill="black" /> START SEQUENCE
+               <Play fill="black" /> KETDIK! (LET'S GO)
              </button>
            </motion.div>
         )}
@@ -92,11 +88,11 @@ export const NeonRecall: React.FC = () => {
             className="absolute z-50 bg-black/80 backdrop-blur-xl border-2 border-white/20 p-12 rounded-3xl text-center"
           >
             <h2 className={`text-6xl font-orbitron mb-4 ${status === GameStatus.SUCCESS ? 'text-neon-green' : 'text-neon-pink'}`}>
-              {status === GameStatus.SUCCESS ? 'NEURAL SYNC 100%' : 'SYSTEM CRITICAL'}
+              {status === GameStatus.SUCCESS ? 'YORVORDIZ! (SMASHED IT)' : 'YOMON BO\'LDI... (FAIL)'}
             </h2>
-            <p className="text-2xl text-gray-400 mb-8 font-rajdhani">LEVEL REACHED: {level}</p>
+            <p className="text-2xl text-gray-400 mb-8 font-rajdhani">LEVEL: {level}</p>
             <button onClick={startGame} className="bg-white/10 border border-white/40 text-white hover:bg-white hover:text-black text-xl font-bold font-orbitron px-10 py-4 rounded-xl transition-all flex items-center gap-3 mx-auto">
-              <RotateCcw /> REBOOT SYSTEM
+              <RotateCcw /> QAYTADAN (RETRY)
             </button>
           </motion.div>
         )}
@@ -129,7 +125,7 @@ export const NeonRecall: React.FC = () => {
       
       {status === GameStatus.PLAYING && (
         <div className="mt-8 font-orbitron text-xl text-neon-purple tracking-widest animate-pulse">
-           {isPlayingSequence ? "OBSERVE PATTERN" : "REPEAT SEQUENCE"}
+           {isPlayingSequence ? "QARANG (WATCH)" : "QAYTARING (REPEAT)"}
         </div>
       )}
     </div>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrendItem, GameStatus } from '../types';
@@ -41,7 +42,7 @@ export const TrendWar: React.FC = () => {
     return (
       <div className="h-full flex flex-col items-center justify-center text-neon-blue">
         <RefreshCw className="w-16 h-16 animate-spin mb-4" />
-        <p className="font-orbitron text-2xl tracking-widest">SCANNING DATASTREAMS...</p>
+        <p className="font-orbitron text-2xl tracking-widest">TRENDLAR YUKLANMOQDA...</p>
       </div>
     );
   }
@@ -50,7 +51,7 @@ export const TrendWar: React.FC = () => {
     <div className="h-full flex flex-col items-center justify-center p-4 relative">
       <div className="absolute top-4 right-4 flex items-center gap-2 bg-dark-card border border-neon-blue px-6 py-2 rounded-full">
         <Trophy className="text-yellow-400 w-6 h-6" />
-        <span className="font-orbitron text-2xl text-white">STREAK: {score}</span>
+        <span className="font-orbitron text-2xl text-white">OCHKO: {score}</span>
       </div>
 
       <div className="flex w-full max-w-6xl gap-8 items-stretch h-[60vh]">
@@ -65,7 +66,7 @@ export const TrendWar: React.FC = () => {
           <div className="text-6xl font-orbitron text-neon-purple drop-shadow-[0_0_10px_rgba(188,19,254,0.5)]">
             {items[0]?.volume.toLocaleString()}
           </div>
-          <p className="text-gray-400 mt-2 font-rajdhani uppercase tracking-widest">Monthly Searches</p>
+          <p className="text-gray-400 mt-2 font-rajdhani uppercase tracking-widest">Oylik Qidiruvlar</p>
         </motion.div>
 
         {/* VS Badge */}
@@ -88,14 +89,14 @@ export const TrendWar: React.FC = () => {
                  className="group bg-neon-green/10 hover:bg-neon-green/30 border-2 border-neon-green text-neon-green p-6 rounded-xl transition-all hover:scale-105 flex items-center justify-center gap-4"
                >
                  <ArrowUp className="w-8 h-8 group-hover:-translate-y-1 transition-transform" />
-                 <span className="font-orbitron text-2xl font-bold">HIGHER</span>
+                 <span className="font-orbitron text-2xl font-bold">KO'PROQ (HIGHER)</span>
                </button>
                <button 
                  onClick={() => handleGuess('lower')}
                  className="group bg-neon-pink/10 hover:bg-neon-pink/30 border-2 border-neon-pink text-neon-pink p-6 rounded-xl transition-all hover:scale-105 flex items-center justify-center gap-4"
                >
                  <ArrowDown className="w-8 h-8 group-hover:translate-y-1 transition-transform" />
-                 <span className="font-orbitron text-2xl font-bold">LOWER</span>
+                 <span className="font-orbitron text-2xl font-bold">KAMROQ (LOWER)</span>
                </button>
              </div>
           ) : (
@@ -107,10 +108,10 @@ export const TrendWar: React.FC = () => {
               <div className={`text-6xl font-orbitron mb-2 ${status === GameStatus.SUCCESS ? 'text-neon-green' : 'text-neon-pink'}`}>
                 {items[1]?.volume.toLocaleString()}
               </div>
-              <p className="text-gray-400 font-rajdhani uppercase tracking-widest mb-6">Monthly Searches</p>
+              <p className="text-gray-400 font-rajdhani uppercase tracking-widest mb-6">Oylik Qidiruvlar</p>
               
               <div className="text-3xl font-orbitron mb-8">
-                {status === GameStatus.SUCCESS ? 'CORRECT!' : 'GAME OVER'}
+                {status === GameStatus.SUCCESS ? 'TOPDINGIZ! (CORRECT)' : 'XATO... (WRONG)'}
               </div>
 
               <button 
@@ -120,7 +121,7 @@ export const TrendWar: React.FC = () => {
                 }}
                 className="bg-white text-black font-orbitron font-bold px-8 py-3 rounded-full hover:scale-110 transition-transform"
               >
-                {status === GameStatus.FAILURE ? 'RESTART SYSTEM' : 'NEXT BATTLE'}
+                {status === GameStatus.FAILURE ? 'QAYTADAN (RESTART)' : 'DAVOM ETAMIZ (NEXT)'}
               </button>
             </motion.div>
           )}

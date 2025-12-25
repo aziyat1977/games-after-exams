@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, useEffect } from 'react';
 import { generateDoodlePrompt } from '../services/geminiService';
 import { Trash2, Shuffle, PenTool, Download } from 'lucide-react';
@@ -78,21 +79,21 @@ export const DoodleChaos: React.FC = () => {
   };
 
   return (
-    <div className="h-full flex flex-col p-6 gap-6">
+    <div className="h-full w-full flex flex-col p-6 gap-6 max-w-7xl mx-auto">
       {/* Header / Prompt Bar */}
       <div className="flex justify-between items-center bg-dark-card border border-neon-purple/30 p-6 rounded-2xl shadow-lg backdrop-blur">
         <div className="flex flex-col">
-          <span className="text-neon-purple font-orbitron text-sm tracking-widest uppercase">Target Subject</span>
+          <span className="text-neon-purple font-orbitron text-sm tracking-widest uppercase">CHIZISH UCHUN MAVZU (TOPIC)</span>
           <h2 className="text-3xl font-rajdhani font-bold text-white leading-tight">
-            {prompt ? `"${prompt.text}"` : "Decrypting..."}
+            {prompt ? `"${prompt.text}"` : "Yuklanmoqda..."}
           </h2>
         </div>
         <button 
           onClick={getNewPrompt}
-          className="flex items-center gap-2 bg-neon-purple hover:bg-purple-500 text-white font-orbitron font-bold px-6 py-3 rounded-xl transition-all"
+          className="flex items-center gap-2 bg-neon-purple hover:bg-purple-500 text-white font-orbitron font-bold px-6 py-3 rounded-xl transition-all shadow-[0_0_20px_rgba(188,19,254,0.3)] hover:scale-105"
         >
           <Shuffle className="w-5 h-5" />
-          NEW PROMPT
+          YANGI MAVZU (NEW)
         </button>
       </div>
 
@@ -106,7 +107,7 @@ export const DoodleChaos: React.FC = () => {
                 key={c}
                 onClick={() => setColor(c)}
                 style={{ backgroundColor: c }}
-                className={`w-full aspect-square rounded-full transition-transform ${color === c ? 'scale-110 ring-2 ring-white' : 'hover:scale-105'}`}
+                className={`w-full aspect-square rounded-full transition-transform ${color === c ? 'scale-110 ring-2 ring-white shadow-[0_0_10px_white]' : 'hover:scale-105 opacity-80 hover:opacity-100'}`}
               />
             ))}
           </div>
@@ -114,18 +115,18 @@ export const DoodleChaos: React.FC = () => {
           <div className="h-px w-12 bg-white/20 my-2" />
           
           <div className="flex flex-col gap-4">
-             <button onClick={() => setLineWidth(5)} className={`p-2 rounded-lg ${lineWidth === 5 ? 'bg-white/20' : ''}`}><div className="w-2 h-2 bg-white rounded-full" /></button>
-             <button onClick={() => setLineWidth(15)} className={`p-2 rounded-lg ${lineWidth === 15 ? 'bg-white/20' : ''}`}><div className="w-4 h-4 bg-white rounded-full" /></button>
-             <button onClick={() => setLineWidth(30)} className={`p-2 rounded-lg ${lineWidth === 30 ? 'bg-white/20' : ''}`}><div className="w-6 h-6 bg-white rounded-full" /></button>
+             <button onClick={() => setLineWidth(5)} className={`p-2 rounded-lg transition-all ${lineWidth === 5 ? 'bg-white/20 scale-110' : 'hover:bg-white/10'}`}><div className="w-2 h-2 bg-white rounded-full" /></button>
+             <button onClick={() => setLineWidth(15)} className={`p-2 rounded-lg transition-all ${lineWidth === 15 ? 'bg-white/20 scale-110' : 'hover:bg-white/10'}`}><div className="w-4 h-4 bg-white rounded-full" /></button>
+             <button onClick={() => setLineWidth(30)} className={`p-2 rounded-lg transition-all ${lineWidth === 30 ? 'bg-white/20 scale-110' : 'hover:bg-white/10'}`}><div className="w-6 h-6 bg-white rounded-full" /></button>
           </div>
 
           <div className="mt-auto flex flex-col gap-4">
-             <button onClick={clearCanvas} className="p-3 text-red-500 hover:bg-red-500/10 rounded-xl transition"><Trash2 /></button>
+             <button onClick={clearCanvas} className="p-3 text-red-500 hover:bg-red-500/20 rounded-xl transition"><Trash2 /></button>
           </div>
         </div>
 
         {/* Canvas Area */}
-        <div ref={containerRef} className="flex-1 bg-white rounded-2xl overflow-hidden cursor-crosshair relative shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+        <div ref={containerRef} className="flex-1 bg-white rounded-2xl overflow-hidden cursor-crosshair relative shadow-[0_0_30px_rgba(255,255,255,0.1)] border-4 border-white/10">
            <canvas
              ref={canvasRef}
              onMouseDown={startDrawing}
@@ -137,8 +138,8 @@ export const DoodleChaos: React.FC = () => {
              onTouchMove={draw}
              className="touch-none"
            />
-           <div className="absolute top-4 right-4 text-black/20 font-orbitron font-bold pointer-events-none select-none">
-             VORTEX SKETCHPAD
+           <div className="absolute top-4 right-4 text-black/20 font-orbitron font-bold pointer-events-none select-none text-2xl tracking-widest">
+             VORTEX RASSOM
            </div>
         </div>
       </div>
